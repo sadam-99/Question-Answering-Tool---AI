@@ -1,0 +1,350 @@
+## Axioms(in English and FOL((First Order Logic)) form) Author:
+# Shivam Gupta
+# SXG190040
+
+Scenario:
+```
+Yesterday John went to the North Berkeley Safeway supermarket and bought two
+pounds of tomatoes and a pound of ground beef.
+```
+
+1. if person has a Payment Card then he is an adult.
+all x all y (Person(x) & HasPaymentCard(x,y) & Card(y)-> Adult(x)).
+
+2. if person has Bank Account then has has a Payment Card
+all x all y(Person(x) & HasBankAccount(x,y) & Bank(y)-> HasPaymentCard(x,y)).
+
+3. Children are not adult
+all x (Child(x)->-Adult(x)).
+
+4. x has Payment Card of class y.
+HasPaymentCard(x,y).
+
+5. John has a Bank Account  in American Express.
+HasBankAccount(John, AmericanExpress).
+
+6. Amex is a Payment Card.
+Card(Amex).
+
+7. John is a person.
+Person(John).
+
+8. Chase is a Payment Card.
+Card(Chase).
+
+9. Veggie is a Food Item
+all x (Veggie(x)->FoodItem(x)).
+
+10. Food Item is an Item
+all x (FoodItem(x) -> Item(x)).
+
+11. Item count for any item is q
+Volume(q).
+
+12. Veggie is a Food Item
+Veggie(Tomato).
+
+13. If a item has a volume of 2 pounds then it will have the volume of 10
+Pounds(two)-> Volume(ten).
+
+14. Veggie is a Food Item
+Veggie(x)->Item(x).
+
+15. If a item has a volume of 10 then it will have the volume of 2
+Volume(ten)-> Volume(two).
+
+16. John purchases 2 pounds of 2 tomatoes
+Purchases(John,Tomato,Safeway,two,t) & Pounds(two).
+
+17. If person bpurchases item of type y in volume q at time t then he owns q number of items of class y.
+all x all y all z all q all t (Purchases(x,y,z,q,t) & Item(y) & Volume(q) -> Owns(x,y,q)).
+
+18. John is a person.
+Person(John).
+
+19. John requires meat
+Requires(John,Meet).
+
+20. Meet is a Food Item.
+FoodItem(Meet).
+
+21.Every food item is an item
+all x (FoodItem(x) -> Item(x)).
+
+22. At time t
+Time(t)
+
+23. All persons who purchses item at the same time watch each other
+all x all y all m(Person(x) & Purchases(x,y,z,q,t) & Person(m) & Purchases(m,y,z,q,t) & Item(y) & Time(t)->Watches(x,m) & Watches(m,x)).
+
+
+24. All Supermarket does not prepare Veggies.
+all x all y(Supermarket(x) & Has(x,y) & Veggie(y) -> -prepare(x,y)).
+
+25. All the Veggies are item
+all x(Veggie(x) -> Item(x)).
+
+
+26. All the Veggies are fooditems.
+Veggie(x) -> FoodItem(x).
+
+27. All persons who purchase any food item then he eats it.
+all x all y(Person(x) & Purchases(x,y,z,q,t) & FoodItem(y) -> Eats(x,y)).
+
+28. Deodorant is a Fashion item.
+FashionItem(Deodorant).
+
+29. Fashion item are items.
+all x(FashionItem(x)->Item(x)).
+
+30. Safeway has Deodorant
+Has(Safeway, Deodorant).
+
+31. Safeway is a Supermarket.
+Supermarket(Safeway).
+
+32. Supermarket sells item y.
+all x all y(Supermarket(x) & Has(x,y) & Item(y)->Sells(x,y)).
+
+
+33. John has a Bank Account  in American Express.
+HasBankAccount(John, AmericanExpress)
+
+34. all person who have bank account has credit card.
+all x(HasBankAccount(x,z)->HasCreditCard(x)).
+
+34. all person who needs type y item from supermarket and has a credit card, brings money to supermarkt.
+all x all y all z all k(Person(x) & Needs(x,y) & HasCreditCard(x) & Supermarket(k)->bringsMoney(x)).
+
+
+35. If person visits supermarket then he will buy some item y.
+Person(x) & Visted(x,z) & Supermarket(z) ->Purchases(x,y,z,q,t).
+
+36. If person has money M1 and he Purchases something then he is left with money M2 which is less than M1.
+Purchases(x,y,z,q,t) & HasMoney(x,M1)->HasMoney(x,M2) & LessThan(M2,M1).
+
+37. Customer is never alone(Solo).
+all x (Customer(x)->-Solo(x)).
+
+38. John purchases beef at the Safeway.
+Purchases(John,Tomato,Safeway,one,t).
+
+39. If person purchases something then he should be a customer.
+all x all y(Person(x) & Purchases(x,y,z,q,t) & Supermarket(z)->Customer(x)).
+
+40. Beef is Meet 
+MeetItem(Beef).
+
+41. The Person who eats Meet are not Vegetarian
+Person(x) & Eats(x,y) & MeetItem(y)-> -Vegetarian(x).
+
+42. Meet is a Food item
+MeetItem(x)->FoodItem(x).
+
+43. The person x who purchses food item y eats that item
+Person(x) & Purchases(x,y,z,q,t) & FoodItem(y) -> Eats(x,y).
+
+44. SafewayCorporation is a Company.
+Company(SafewayCorporation).
+
+45. All fashion items are itmes
+all x(FashionItem(x)->Item(x)).
+
+46. Company z owns items y.
+all x all y (Supermarket(x) & Item(y) & Purchases(x,y,z,q,t) & Company(z) -> Owns(z,y,q)).
+
+47. Safeway Purchases the items at SafewayCorporation.
+all y(Purchases(Safeway, y, SafewayCorporation,q,t) & Item(y)).
+
+48. Safeway Purchases the Deodorant at SafewayCorporation at time t.
+Purchases(Safeway,Deodorant,SafewayCorporation,q,t).
+
+49. Person purchases one pound of item y.
+all x all y(Person(x) & Purchases(x,y,z,one,t) & Pound(one) & Item(y)).
+
+50. one pound is equivalent to sixteen ounces.
+Pound(one)->Ounces(sixteen).
+
+51. GroundBeef is Meet
+MeetItem(GroundBeef).
+
+52.John purchases a pound of ground beef.
+Purchases(John,GroundBeef,z,one,t) & Pound(one).
+
+52. Shell is the name of gas station.
+GasStation(Shell).
+
+53. Gas station has(owns) gas.
+all x all y(GasStation(x) & Owns(x,y,q) & Gas(y)).
+
+54. Safeway is in North Berkeley(NorthBerkeley).
+Locale(Safeway, NorthBerkeley).
+
+55. Shell station is in North Berkeley(NorthBerkeley).
+Locale(Shell,NorthBerkeley).
+
+56. If there is supermarket then it has Members.
+all x all y(Supermarket(x)->Has(x,y) & Member(y)).
+
+57. If x is the selling gas then x has to be the gas station.
+all x all y(Sells(x,y) & Gas(y)->GasStation(x)).
+
+58. for any supermarket at some location that has gas station at same location then supermarket is near gas station or vice a versa is also true.
+all x all y (Supermarket(x) & Locale(x,z) & GasStation(y) & Locale(y,z) -> NearTo(x,y) & NearTo(y,x)). 
+
+59. Food items adjusts in a car trunk.
+all x exists y(FoodItems(x)) & Adjusts(x,y) & CarTrunk(y).
+
+60. All the Veggies are Food item.
+Veggie(x)->FoodItem(x).
+
+
+61. Payment cards are the form Money.
+Money(card).
+
+62. Books are items
+all x book(x) -> Item(x).
+
+63. IceCream are FoodItem
+all x IceCream(x) -> FoodItem(x).
+
+64. Bread are FoodItem
+all x Bread(x) -> FoodItem(x).
+
+65. Grapes is a fruit item.
+FruitItem(Grapes).
+
+66.Blueberry is a fruit item.
+FruitItem(Blueberry).
+
+67. MuskMelon is a fruit item.
+FruitItem(MuskMelon).
+
+68. Potato are FoodItem
+FoodItem(Potato).
+
+69. Garlic are FoodItem
+FoodItem(Garlic).
+
+70. Ginger are FoodItem
+FoodItem(Ginger).
+
+71. All Supermarkets sell meat.
+all x exists y Sells(x,y) & Supermarket(x) & MeetItem(y).
+   
+72. x has all items of Class y.
+Has(x,y).
+
+73. Supermarket has clothes.
+all x all y(Supermarjet(x)->Has(x,y) & Clothes(y)).
+
+74. Jeans are a kind of Clothes.
+Clothes(Jeans).
+
+75. Shirts are a kind of Clothes.
+Clothes(Shirts).
+
+76. All Meets are edible
+all x meat(x) -> Edible(x).
+
+77. All supermarkets have a billing counter
+all x  Supermarket(x) -> exists y BillingCounter(x, y).
+
+78. Milk is a Dairy product.
+DairyItem(Milk).
+
+79. Curd is a Dairy product.
+DairyItem(Curd).
+
+80. Yoghurt is a Dairy product.
+DairyItem(Yoghurt).
+
+81. Cheese is a Dairy product.
+DairyItem(Cheese).
+
+82. All Dairy products are fooditems.
+all x(DairyItem(x)->FoodItem(x)).
+
+83. Fish is meet item.
+MeetItem(Fish).
+
+84. Members helps customers.
+all x all y (Member(x)->Assists(x,y) & Customer(y)).
+
+85.Petrol is a type of fuel
+Fuel(Petrol).
+
+86.Diesel is a type of fuel
+Fuel(Diesel).
+
+87. Moisturizer is a Fashion item.
+FashionItem(Moisturizer).
+
+88. Moisturizer is a Fashion item.
+FashionItem(Moisturizer).
+
+89. For any supermarket at location has parking lot at same location then supermarket is near parking lot or vice a versa.
+all x all y (Supermarket(x) & Locale(x,z) & ParkingLot(y) & Locale(y,z) -> NearTo(x,y) & NearTo(y,x)). 
+
+90. Supermarkets purchases item from Companies.
+all x all y(exists z exists t Supermarket(x) & item(y) & Company(z) & Purchases(x, y, z, q, t)).
+
+91. All Supermarkets sell dairy products.
+all x exists y Sells(x,y) & Supermarket(x) & DairyItem(y).
+
+
+92. Anyone who eats Meet is  a non-vegetarian.
+all x(exists y Eats(x, y) & MeetItem(y) -> -VegPerson(x)).
+
+
+93. Anyone who purchases a item has it 
+all x all y all z(exists t Supermarket(z) & Item(y) &  Purchases(x, y, z, q, t) -> Has(x, y)).
+
+
+94. TVs are electronics
+ElectronicItem(Television).
+
+
+95. Table is a furniture.
+FurnitureItem(Table).
+
+
+96. Supermarket has sport equipments.
+all x all y(Supermarket(x)->Has(x,y) & SportItem(y)).
+
+
+97. If person purchases something then he is a customer.
+all x all y(Person(x) & Purchases(x,y,z,q,t) & Supermarket(z)->Customer(x)).
+
+
+98. Mary visited Target.
+Visited(Mary,Target).
+
+99. Target is supermarket.
+Supermarket(Target).
+
+
+100. Walmart is supermarket.
+Supermarket(Walmart).
+
+
+101. all who have account in bank has cash.
+HasBankAccount(x,z)->HasCash(x).
+
+102. anyone who has credit card , brings it in a wallet.
+HasCreditCard(x)->bringsWallet(x).
+
+103. All person if requires an item they purchase it.
+all x all y all z all q all t(Person(x) & Requires(x,y) & Item(y)->Purchases(x,y,z,q,t)).
+
+104. John purchases Tomato at the Safeway.
+Purchases(John,Tomato,Safeway,two,t).
+
+105. Mary is a person.
+Person(Mary).
+
+106. Tomato is a veggie.
+Veggie(Tomato).
+
+107. If person requires item of type y then he purchases it.
+all x all y all z all q all t(Person(x) & Needs(x,y) & Item(y)->Purchases(x,y,z,q,t)).

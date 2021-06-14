@@ -1,0 +1,246 @@
+% Saved by Prover9-Mace4 Version 0.5, December 2007.
+
+set(ignore_option_dependencies). % GUI handles dependencies
+
+if(Prover9). % Options for Prover9
+  assign(max_seconds, 60).
+end_if.
+
+if(Mace4).   % Options for Mace4
+  assign(max_seconds, 60).
+end_if.
+
+formulas(assumptions).
+
+all x all y (Person(x) & HasPaymentCard(x,y) & Card(y)-> Adult(x)).
+
+all x all y(Person(x) & HasBankAccount(x,y) & Bank(y)-> HasPaymentCard(x,y)).
+
+all x (Child(x)->-Adult(x)).
+
+HasPaymentCard(x,y).
+
+HasBankAccount(John, AmericanExpress).
+
+Card(AmericanExpress).
+
+Person(John).
+
+Card(Chase).
+
+all x (Veggie(x)->FoodItem(x)).
+
+all x (FoodItem(x) -> Item(x)).
+
+Volume(q).
+
+Veggie(Tomato).
+
+Pounds(two)-> Volume(ten).
+
+Veggie(x)->Item(x).
+
+Volume(ten)-> Volume(two).
+
+Purchases(John,Tomato,Safeway,two,t) & Pounds(two).
+
+all x all y all z all q all t (Purchases(x,y,z,q,t) & Item(y) & Volume(q) -> Owns(x,y,q)).
+
+Requires(John,Meet).
+
+FoodItem(Meet).
+
+all x (FoodItem(x) -> Item(x)).
+
+Time(t).
+
+all x all y all m(Person(x) & Purchases(x,y,z,q,t) & Person(m) & Purchases(m,y,z,q,t) & Item(y) & Time(t)->Watches(x,m) & Watches(m,x)).
+
+all x all y(Supermarket(x) & Has(x,y) & Veggie(y) -> -prepare(x,y)).
+
+all x(Veggie(x) -> Item(x)).
+
+all x all y(SuperMarket(x) & Veggie(y) -> -Prepare(x,y)).
+
+Veggie(x) -> FoodItem(x).
+
+all x all y(Person(x) & Purchases(x,y,z,q,t) & FoodItem(y) -> Eats(x,y)).
+
+FashionItem(Deodorant).
+
+all x(FashionItem(x)->Item(x)).
+
+Has(Safeway, Deodorant).
+
+Supermarket(Safeway).
+
+all x all y(Supermarket(x) & Has(x,y) & Item(y)->Sells(x,y)).
+
+Supermarket(Safeway).
+
+HasBankAccount(John,AmericanExpress).
+
+Needs(John,y).
+
+all x(HasBankAccount(x,z)->HasCreditCard(x)).
+
+all x all y all z all k(Person(x) & Needs(x,y) & HasCreditCard(x) & Supermarket(k)->bringsMoney(x)).
+
+Person(x) & Visited(x,z) & Supermarket(z) ->Purchases(x,y,z,q,t).
+
+Purchases(x,y,z,q,t) & HasMoney(x,x1)->HasMoney(x,x2) & LessThan(x2,x1).
+
+Purchases(x,y,z,q,t) & HasMoney(x,M1)->HasMoney(x,M2) & LessThan(M2,M1).
+
+all x (Customer(x)->-Solo(x)).
+
+Purchases(John,Tomato,Safeway,one,t).
+
+all x all y(Person(x) & Purchases(x,y,z,q,t) & Supermarket(z)->Customer(x)).
+
+MeetItem(Beef).
+
+Person(x) & Eats(x,y) & MeetItem(y)-> -Vegetarian(x).
+
+MeetItem(x)->FoodItem(x).
+
+Person(x) & Purchases(x,y,z,q,t) & FoodItem(y) -> Eats(x,y).
+
+Company(SafewayCorporation).
+
+all x(FashionItem(x)->Item(x)).
+
+all x all y (Supermarket(x) & Item(y) & Purchases(x,y,z,q,t) & Company(z) -> Owns(z,y,q)).
+
+all y(Purchases(Safeway, y, SafewayCorporation,q,t) & Item(y)).
+
+Purchases(Safeway,Deodorant,SafewayCorporation,q,t).
+
+all x all y(Person(x) & Purchases(x,y,z,one,t) & Pound(one) & Item(y)).
+
+Pound(one)->Ounces(sixteen).
+
+Ounces(sixteen)->Ounces(one).
+
+MeetItem(GroundBeef).
+
+all x(MeetItem(x)->Item(x)).
+
+Purchases(John,GroundBeef,z,one,t) & Pound(one).
+
+GasStation(Shell).
+
+all x all y(GasStation(x) & Owns(x,y,q) & Gas(y)).
+
+Locale(Safeway, NorthBerkeley).
+
+Locale(Shell,NorthBerkeley).
+
+all x all y(Supermarket(x)->Has(x,y) & Member(y)).
+
+all x all y(Sells(x,y) & Gas(y)->GasStation(x)).
+
+all x all y (Supermarket(x) & Locale(x,z) & GasStation(y) & Locale(y,z) -> NearTo(x,y) & NearTo(y,x)). 
+
+all x exists y(FoodItems(x)) & Adjusts(x,y) & CarTrunk(y).
+
+Veggie(x)->FoodItem(x).
+
+Money(card).
+
+all x book(x) -> Item(x).
+
+all x IceCream(x) -> FoodItem(x).
+
+all x Bread(x) -> FoodItem(x).
+
+FruitItem(Grapes).
+
+FruitItem(Blueberry).
+
+FruitItem(MuskMelon).
+
+FoodItem(Potato).
+
+FoodItem(Garlic).
+
+FoodItem(Ginger).
+
+all x exists y Sells(x,y) & Supermarket(x) & MeetItem(y).
+
+Has(x,y).
+
+all x all y(Supermarjet(x)->Has(x,y) & Clothes(y)).
+
+Clothes(Jeans).
+
+Clothes(Shirts).
+
+all x meat(x) -> Edible(x).
+
+all x  Supermarket(x) -> exists y BillingCounter(x, y).
+
+DairyItem(Milk).
+
+DairyItem(Curd).
+
+DairyItem(Yoghurt).
+
+DairyItem(Cheese).
+
+all x(DairyItem(x)->FoodItem(x)).
+
+MeetItem(Fish).
+
+all x all y (Member(x)->Assists(x,y) & Customer(y)).
+
+Fuel(Petrol).
+
+Fuel(Diesel).
+
+FashionItem(Moisturizer).
+
+FashionItem(Moisturizer).
+
+all x all y (Supermarket(x) & Locale(x,z) & ParkingLot(y) & Locale(y,z) -> NearTo(x,y) & NearTo(y,x)). 
+
+all x exists y Sells(x,y) & Supermarket(x) & DairyItem(y).
+
+all x(exists y Eats(x, y) & MeetItem(y) -> -VegPerson(x)).
+
+all x all y all z(exists t Supermarket(z) & Item(y) &  Purchases(x, y, z, q, t) -> Has(x, y)).
+
+ElectronicItem(Television).
+
+FurnitureItem(Table).
+
+all x all y(Supermarket(x)->Has(x,y) & SportItem(y)).
+
+all x all y(Person(x) & Purchases(x,y,z,q,t) & Supermarket(z)->Customer(x)).
+
+Visited(Mary,Target).
+
+Supermarket(Target).
+
+Supermarket(Walmart).
+
+HasBankAccount(x,z)->HasCash(x).
+
+HasCreditCard(x)->bringsWallet(x).
+
+Purchases(John,Tomato,Safeway,two,t).
+
+Person(Mary).
+
+Veggie(Tomato).
+
+all x all y all z all q all t(Person(x) & Needs(x,y) & Item(y)->Purchases(x,y,z,q,t)).
+
+end_of_list.
+
+formulas(goals).
+
+Visited(John,x) & Supermarket(x) & HasMoney(John,g) ->LessThan(h,g)& HasMoney(John,h).
+
+end_of_list.
+
